@@ -35,24 +35,30 @@
         padding: 1px 4px;
     }
 	
-	#battString {
-		position: relative;
+	.flex-container {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
 	}
-	
-	.battcell {
-		position: absolute;
+
+	.flex-item {
 	}
 	
 	.cellicon {
-		position: absolute;
-		z-index:1;
+		z-index: 1;
 	}
 	
 	.cellinfo {
-		position: absolute;
-		left: 30px;
-		top: 40px;
-		z-index:2;
+		position: relative;
+		left: 10px;
+		top: 10px;
+		z-index: 2;
 	}
   </style>
   
@@ -76,18 +82,18 @@
 </table>
 
 
-<div id="battString">
-	<div class="battcell">
+<ul class="flex-container">
+	<li class="flex-item">
 		<img class="cellicon" src="img/battery.png" width="100px">
 		<div class="cellinfo">#1</div>
-	</div>
+	</li>
 	
-	<div class="battcell">
+	<li class="flex-item">
 		<img class="cellicon" src="img/battery.png" width="100px">
 		<div class="cellinfo">#2</div>
-	</div>
+	</li>
 	
-</div>
+</ul>
 
 <div id="battCellImpedanceChart">
 
@@ -104,7 +110,7 @@ $(document).ready(function(){
 	];
     
     plot1b = $.jqplot('chart1b',[arr],{
-        title: 'Tooltip and Custom Legend Highlighting',
+        title: 'Battery Status',
         seriesDefaults:{
             renderer: $.jqplot.BubbleRenderer,
             rendererOptions: {
